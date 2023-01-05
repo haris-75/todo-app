@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const dbConnection = require('./db/config');
+const { dbConnection } = require('./db/config');
+
+const todoRoutes = require('./routes/list');
+const itemRoutes = require('./routes/item');
 
 app.use(cors());
 app.use(express.json());
+app.use('/list', todoRoutes);
+app.use('/item/:list_id', itemRoutes);
 
 dbConnection();
 
