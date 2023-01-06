@@ -9,7 +9,7 @@ const itemRoutes = require('./routes/item');
 app.use(cors());
 app.use(express.json());
 app.use('/list', todoRoutes);
-app.use('/item/:list_id', itemRoutes);
+app.use('/item', itemRoutes);
 
 dbConnection();
 

@@ -8,11 +8,11 @@ const {
   uncompleteTodoItem,
 } = require('../controllers/item');
 
-router.get('/', getTodoItem);
-router.post('/', addTodoItem);
-router.get('/:id', getTodoItemWithID);
-router.patch('/:id', updateTodoItem);
-router.patch('/complete/:id', completeTodoItem);
-router.patch('/uncomplete/:id', uncompleteTodoItem);
+router.get('/:list_id', getTodoItem);
+router.post('/:list_id', addTodoItem);
+router.get('/:list_id/:id', getTodoItemWithID);
+router.patch('/:list_id/:id', updateTodoItem);
+router.patch('/:list_id/complete/:id', completeTodoItem);
+router.patch('/:list_id/uncomplete/:id', uncompleteTodoItem);
 
 module.exports = router;
