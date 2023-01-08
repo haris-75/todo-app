@@ -6,12 +6,10 @@ const getTodoList = async (req, res) => {
     const allTodos = await client.query(
       'SELECT * FROM todo_list ORDER BY list_id ASC'
     );
-    if (allTodos.rowCount > 0) {
-      res.json({ status: 200, list: allTodos.rows });
-    } else throw new Error('no record found');
+    res.json({ status: 200, list: allTodos.rows });
   } catch (err) {
     console.error(err.message);
-    res.status(404).send({ status: 404, message: err.message });
+    res.status(500).send({ status: 500, message: err.message });
   }
 };
 

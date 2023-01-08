@@ -1,13 +1,15 @@
 const { Client } = require('pg');
 const path = require('path');
 const fs = require('fs');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const client = new Client({
-  user: 'user',
-  host: 'localhost',
-  database: 'postgres',
-  password: 'password',
-  port: 5432,
+  host: process.env.SERVER_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: parseInt(process.env.DB_PORT || '5432'),
 });
 
 const initDatabase = async () => {

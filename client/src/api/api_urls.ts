@@ -1,4 +1,4 @@
-const api_url = 'http://localhost:5001';
+const api_url = process.env.REACT_APP_API_URL;
 
 export const TODO_LIST = () => `${api_url}/list`;
 export const TODO_LIST_ID = (id: number) => `${api_url}/list/${id}`;

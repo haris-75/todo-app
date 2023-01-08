@@ -72,7 +72,9 @@ function TodoListContainer() {
   return (
     <div>
       {loading ? (
-        <div className="spinner-border text-primary" role="status"></div>
+        <center>
+          <div className="spinner-border text-primary" role="status"></div>
+        </center>
       ) : todoList.length < 1 ? (
         <center>
           <p>No list added so far</p>
