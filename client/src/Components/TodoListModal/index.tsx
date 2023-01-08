@@ -20,7 +20,7 @@ export default function TodoListModal() {
     if (todoListModalData.id) {
       updateTodoList(todoListModalData.id, todoListModalData.text)
         .then(() => {
-          toast.success('successfully updated new todo list');
+          toast.success('Successfully updated new todo list');
           getAllTodoLists()
             .then(({ data: { list } }) => {
               dispatch(setTodoList(list));
@@ -32,13 +32,13 @@ export default function TodoListModal() {
             });
         })
         .catch(() => {
-          toast.error('failed to update todo list');
+          toast.error('Failed to update todo list');
           closeModalHandler();
         });
     } else
       addTodoList(todoListModalData.text)
         .then(() => {
-          toast.success('successfully add new todo list');
+          toast.success('Successfully add new todo list');
           getAllTodoLists()
             .then(({ data: { list } }) => {
               dispatch(setTodoList(list));
@@ -50,7 +50,7 @@ export default function TodoListModal() {
             });
         })
         .catch(() => {
-          toast.error('failed to add todo list');
+          toast.error('Failed to add todo list');
           closeModalHandler();
         });
   };

@@ -34,7 +34,7 @@ function App() {
       </div>
       <TodoListModal />
       <TodoItemModal />
-      <ToastContainer />
+      <ToastContainer position="bottom-right" autoClose={2000} />
     </div>
   );
 }

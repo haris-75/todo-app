@@ -53,20 +53,20 @@ export default function TodoItemContainer({
       uncompleteTodoItem(list_id, item_id)
         .then(() => {
           getAllTodoItemsHandler();
-          toast.success('successfully uncompleted todo list');
+          toast.success('Successfully uncompleted todo list');
         })
         .catch((err) => {
-          toast.error('failed to uncomplete todo list');
+          toast.error('Failed to uncomplete todo list');
           console.error('failed to uncomplete todo list: ', err);
         });
     else
       completeTodoItem(list_id, item_id)
         .then(() => {
           getAllTodoItemsHandler();
-          toast.success('successfully completed todo list');
+          toast.success('Successfully completed todo list');
         })
         .catch((err) => {
-          toast.error('failed to complete todo list');
+          toast.error('Failed to complete todo list');
           console.error('failed to complete todo list: ', err);
         });
   };

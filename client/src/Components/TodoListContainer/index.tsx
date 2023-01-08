@@ -45,10 +45,10 @@ function TodoListContainer() {
       unarchiveTodoList(id)
         .then(() => {
           getAllTodoListHandler();
-          toast.success('successfully unarchived todo list');
+          toast.success('Successfully unarchived todo list');
         })
         .catch((err) => {
-          toast.error('failed to unarchive todo list');
+          toast.error('Failed to unarchive todo list');
           console.error('failed to unarchive todo list: ', err);
         });
     else
@@ -57,10 +57,10 @@ function TodoListContainer() {
           getAllTodoListHandler();
           setOpenedItemsList(openedItemsList.filter((itemId) => itemId !== id));
 
-          toast.success('successfully archived todo list');
+          toast.success('Successfully archived todo list');
         })
         .catch((err) => {
-          toast.error('failed to archive todo list');
+          toast.error('Failed to archive todo list');
           console.error('failed to archive todo list: ', err);
         });
   };

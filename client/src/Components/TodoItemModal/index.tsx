@@ -24,7 +24,7 @@ export default function TodoItemModal() {
         todoItemModalData.text
       )
         .then(() => {
-          toast.success('successfully updated new todo item');
+          toast.success('Successfully updated new todo item');
           getAllTodoItems(selectedTodoListID)
             .then(({ data: { all_items } }) => {
               dispatch(setTodoItems(all_items));
@@ -36,13 +36,13 @@ export default function TodoItemModal() {
             });
         })
         .catch(() => {
-          toast.error('failed to update todo item');
+          toast.error('Failed to update todo item');
           closeModalHandler();
         });
     } else
       addTodoItem(todoItemModalData.text, selectedTodoListID)
         .then(() => {
-          toast.success('successfully add new todo item');
+          toast.success('Successfully add new todo item');
           getAllTodoItems(selectedTodoListID)
             .then(({ data: { all_items } }) => {
               dispatch(setTodoItems(all_items));
@@ -54,7 +54,7 @@ export default function TodoItemModal() {
             });
         })
         .catch(() => {
-          toast.error('failed to add todo item');
+          toast.error('Failed to add todo item');
           closeModalHandler();
         });
   };
