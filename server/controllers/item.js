@@ -19,12 +19,12 @@ const getTodoItem = async (req, res) => {
     }
 
     const allTodoItem = await client.query(
-      'SELECT * FROM todo_item WHERE list_id = $1',
+      'SELECT * FROM todo_item WHERE list_id = $1 ORDER BY item_id ASC',
       [list_id]
     );
-    if (allTodoItem.rowCount > 0) {
-      res.json({ status: 200, all_items: allTodoItem.rows });
-    } else throw new Error('no record found');
+    // if (allTodoItem.rowCount > 0) {
+    res.json({ status: 200, all_items: allTodoItem.rows });
+    // } else throw new Error('no record found');
   } catch (err) {
     console.error(err.message);
     res.status(404).send({ status: 404, message: err.message });

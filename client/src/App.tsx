@@ -6,11 +6,12 @@ import './App.css';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { setTodoListModalFlag } from './redux/actions';
+import TodoItemModal from './Components/TodoItemModal';
 
 function App() {
   const dispatch = useDispatch();
   return (
-    <div className="container pt-4">
+    <div className="col-md-8 col-lg-6 col-sm-12 container pt-4">
       <div className="text-end m-3">
         <h2 className="d-flex flex-column align-items-center text-center">
           A simple todo app
@@ -20,6 +21,7 @@ function App() {
         </h2>
         <div className="add-todo-list">
           <Button
+            size="sm"
             type="button"
             onClick={() => dispatch(setTodoListModalFlag(true))}
           >
@@ -31,6 +33,7 @@ function App() {
         <TodoListContainer />
       </div>
       <TodoListModal />
+      <TodoItemModal />
       <ToastContainer />
     </div>
   );

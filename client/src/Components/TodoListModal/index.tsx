@@ -61,7 +61,9 @@ export default function TodoListModal() {
   return (
     <Modal show={todoListModalFlag} onHide={() => closeModalHandler()}>
       <Modal.Header closeButton>
-        <Modal.Title>Add todo list</Modal.Title>
+        <Modal.Title>
+          {`${todoListModalData.id ? 'Update' : 'Add'}`} todo list
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <FormControl
@@ -76,16 +78,17 @@ export default function TodoListModal() {
         />
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="danger" onClick={() => closeModalHandler()}>
+        <Button size="sm" variant="danger" onClick={() => closeModalHandler()}>
           Close
         </Button>
 
         <Button
+          size="sm"
           disabled={!todoListModalData.text}
           variant="primary"
           onClick={() => modalDataHandler()}
         >
-          Save Changes
+          {`${todoListModalData.id ? 'Update' : 'Add'}`} list
         </Button>
       </Modal.Footer>
     </Modal>

@@ -15,9 +15,16 @@ tr > td:last-child {
 }
 .table-wrapper-scroll-y {
   display: block;
+  padding: 2rem;
 }
 button {
-  width: 130px;
+  width: 110px;
+}
+.mr-2 {
+  margin-right: 1rem;
+}
+.ml-2 {
+  margin-left: 1rem;
 }
 
 @media (min-width: 778px) and( max-width:900px) {

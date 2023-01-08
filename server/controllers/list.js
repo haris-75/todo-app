@@ -3,7 +3,9 @@ const { client } = require('../db/config');
 // get all todo_list records
 const getTodoList = async (req, res) => {
   try {
-    const allTodos = await client.query('SELECT * FROM todo_list');
+    const allTodos = await client.query(
+      'SELECT * FROM todo_list ORDER BY list_id ASC'
+    );
     if (allTodos.rowCount > 0) {
       res.json({ status: 200, list: allTodos.rows });
     } else throw new Error('no record found');
@@ -63,7 +65,7 @@ const updateTodoList = async (req, res) => {
       );
 
     const newTodo = await client.query(
-      'UPDATE todo_list SET title=$1  WHERE list_id =$2 AND archived=FALSE',
+      'UPDATE todo_list SET title=$1, last_updated=CURRENT_TIMESTAMP  WHERE list_id =$2 AND archived=FALSE',
       [title, id]
     );
     if (newTodo.rowCount > 0) {
@@ -83,7 +85,7 @@ const archiveTodoList = async (req, res) => {
   try {
     const { id } = req.params;
     const newTodo = await client.query(
-      'UPDATE todo_list SET archived=TRUE  WHERE list_id =$1 AND archived=FALSE',
+      'UPDATE todo_list SET archived=TRUE, last_updated=CURRENT_TIMESTAMP  WHERE list_id =$1 AND archived=FALSE',
       [id]
     );
 
@@ -104,7 +106,7 @@ const unarchiveTodoList = async (req, res) => {
   try {
     const { id } = req.params;
     const newTodo = await client.query(
-      'UPDATE todo_list SET archived=FALSE  WHERE list_id =$1 AND archived=TRUE',
+      'UPDATE todo_list SET archived=FALSE, last_updated=CURRENT_TIMESTAMP  WHERE list_id =$1 AND archived=TRUE',
       [id]
     );
 
